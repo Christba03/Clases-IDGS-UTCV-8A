@@ -1,1 +1,57 @@
-<p>breadcrumbs works!</p>
+<div class="container mt-3">
+  <h2 class="mb-3">Breadcrumbs (migas de pan)</h2>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">¿Qué son?</h5>
+      <p>
+        Los <strong>breadcrumbs</strong> muestran la ruta de navegación del usuario dentro del sitio. Funcionan como una
+        “dirección” (Inicio / Sección / Página) y ayudan a entender <strong>dónde estás</strong> y <strong>cómo volver</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">¿Cuándo conviene usarlos?</h5>
+      <ul class="retro-list">
+        <li><strong>Sitios con varias secciones</strong> o navegación jerárquica (categorías, módulos, unidades).</li>
+        <li><strong>Contenido profundo</strong>: cuando el usuario entra a páginas internas desde búsqueda o links.</li>
+        <li><strong>UX</strong>: para reducir la “sensación de pérdida” al navegar.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Buenas prácticas</h5>
+      <ul class="retro-list">
+        <li><strong>Inicio siempre primero</strong> y con link.</li>
+        <li><strong>Último elemento sin link</strong> (es la página actual).</li>
+        <li><strong>Nombres claros</strong>: usa etiquetas que coincidan con el menú.</li>
+        <li><strong>Consistencia</strong>: mismo separador y estilo en todo el sitio.</li>
+        <li><strong>No reemplaza al menú</strong>: es apoyo, no sustituto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">¿Cómo funciona en este proyecto?</h5>
+      <ul class="retro-list">
+        <li>
+          Se construye a partir de la URL (segmentos) y siempre inicia con <strong>Inicio</strong>.
+        </li>
+        <li>
+          Se usa un mapa de etiquetas (por ejemplo: <code>mapa-sitio</code> → “Mapa del sitio”, <code>busqueda</code> → “Búsqueda”).
+        </li>
+        <li>
+          Se actualiza al cambiar de página (evento <code>NavigationEnd</code> del router).
+        </li>
+      </ul>
+      <small class="text-muted">
+        Tip: navega por el menú superior y observa cómo cambian las migas de pan en el layout.
+      </small>
+    </div>
+  </div>
+</div>
