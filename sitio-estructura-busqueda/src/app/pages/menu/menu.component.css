@@ -1,0 +1,23 @@
+/* Match Inicio/Elementos spacing for lists and paragraphs */
+.retro-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.retro-list li {
+  margin: 10px 0;
+}
+
+p {
+  margin: 0 0 12px 0;
+}
+
+/* Palabras clave (negritas) en azul para Menú */
+strong {
+  color: #00ffff;
+}
+
+code {
+  color: #ffb000;
+}
+
