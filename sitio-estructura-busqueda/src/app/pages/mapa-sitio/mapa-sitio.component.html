@@ -1,1 +1,125 @@
-<p>mapa-sitio works!</p>
+<div class="container mt-3">
+  <h2 class="mb-3">Mapa del sitio</h2>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">¿Cómo navegar?</h5>
+      <ul class="retro-list">
+        <li><strong>Menú superior</strong>: usa las opciones para saltar entre páginas principales.</li>
+        <li><strong>Breadcrumbs</strong>: te muestran “dónde estás” y permiten regresar a secciones anteriores.</li>
+        <li><strong>Búsqueda</strong>: encuentra páginas por palabras clave y filtra por tipo/sección.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Recorridos sugeridos</h5>
+      <small class="text-muted">Ejemplos de rutas para entender el sitio (sigue las flechas):</small>
+
+      <div class="flows">
+
+
+        <div class="flow">
+          <div class="flow-title">Ruta 2 (navegación)</div>
+
+          <!-- Tree-style: branches come out from "Breadcrumbs" -->
+          <div class="flow-tree">
+            <div class="flow-prefix">
+              <a routerLink="/menu">Menú</a>
+              <span class="arrow">→</span>
+            </div>
+            <div class="flow-root-node">
+              <a routerLink="/breadcrumbs">Breadcrumbs</a>
+            </div>
+
+            <div class="flow-prefix"></div>
+            <ul class="flow-branches">
+              <li class="flow-branch">
+                <span class="arrow">→</span>
+                <a routerLink="/menu">Menú</a>
+              </li>
+              <li class="flow-branch">
+                <span class="arrow">→</span>
+                <a routerLink="/busqueda">Búsqueda</a>
+              </li>
+              <li class="flow-branch">
+                <span class="arrow">→</span>
+                <a routerLink="/elementos">Elementos</a>
+              </li>
+              <li class="flow-branch">
+                <span class="arrow">→</span>
+                <a routerLink="/mapa-sitio">Mapa del sitio</a>
+              </li>
+              <li class="flow-branch">
+                <span class="arrow">→</span>
+                <a routerLink="/">Inicio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flow">
+          <div class="flow-title">Ruta 3 (encontrar contenido)</div>
+          <div class="flow-line">
+            <a routerLink="/busqueda">Búsqueda</a>
+            <span class="arrow">→</span>
+            <span class="hint">filtra por sección</span>
+            <span class="arrow">→</span>
+            <a routerLink="/mapa-sitio">Mapa del sitio</a>
+          </div>
+
+          <!-- Branch list: opciones que aparecen en la búsqueda avanzada -->
+          <ul class="flow-branches flow-branches--filters">
+            <li class="flow-branch">
+              <span class="arrow">→</span>
+              <span class="branch-label">Tipo</span>
+              <ul class="flow-subbranches">
+                <li class="flow-subbranch">Todos</li>
+                <li class="flow-subbranch">Página</li>
+                <li class="flow-subbranch">Sección</li>
+              </ul>
+            </li>
+            <li class="flow-branch">
+              <span class="arrow">→</span>
+              <span class="branch-label">Sección/tema</span>
+              <ul class="flow-subbranches">
+                <li class="flow-subbranch" *ngFor="let g of groups">{{ g.section }}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="tree-root" role="tree">
+        <div class="tree-header">
+          <span class="tree-badge">SITIO</span>
+          <span class="tree-path">/</span>
+        </div>
+
+        <div class="tree" *ngFor="let g of groups" role="group">
+          <details class="tree-folder" open>
+            <summary role="treeitem" aria-expanded="true">
+              <span class="folder-name">{{ g.section }}</span>
+              <span class="folder-count">({{ g.items.length }})</span>
+            </summary>
+
+            <ul class="tree-children">
+              <li class="tree-file" *ngFor="let item of g.items" role="treeitem">
+                <div class="file-line">
+                  <a class="file-link" [routerLink]="item.path">{{ item.title }}</a>
+                  <span class="file-path">{{ item.path }}</span>
+                </div>
+                <small class="text-muted">{{ item.description }}</small>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

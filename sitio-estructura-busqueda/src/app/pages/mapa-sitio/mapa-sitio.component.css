@@ -1,0 +1,240 @@
+/* Match Inicio/Elementos spacing for lists */
+.retro-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.retro-list li {
+  margin: 12px 0;
+}
+
+.path {
+  color: #888;
+}
+
+.flows {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.flow-title {
+  color: #00ff00;
+  margin-bottom: 6px;
+}
+
+.flow-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  color: #ffff00;
+}
+
+.hint {
+  color: #888;
+  font-size: 8px;
+}
+
+/* Branch-style list for suggested routes (Ruta 2) */
+.flow-tree {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 10px;
+  row-gap: 8px;
+  align-items: start;
+}
+
+.flow-prefix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.flow-root-node {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.flow-branches {
+  margin: 0;
+  padding: 0 0 0 14px;
+  list-style: none;
+  border-left: 2px dashed #00ff00;
+}
+
+.flow-branches--filters {
+  margin-top: 10px;
+}
+
+/* Align filter-branch connectors a bit lower so they line up with "Tipo" / "Sección/tema" labels */
+.flow-branches--filters .flow-branch {
+  align-items: baseline;
+}
+
+.flow-branches--filters .flow-branch::before {
+  top: 18px; /* was 12px; pushes the "elbow" down */
+}
+
+.branch-label {
+  color: #00ffff;
+}
+
+.flow-subbranches {
+  margin: 10px 0 0 18px;
+  padding: 0 0 0 14px;
+  list-style: none;
+  border-left: 2px dashed #00ffff;
+}
+
+.flow-subbranch {
+  position: relative;
+  margin: 8px 0;
+  padding-left: 10px;
+  color: #00ff00;
+  font-size: 8px;
+}
+
+.flow-subbranch::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 10px;
+  width: 14px;
+  border-top: 2px dashed #00ffff;
+}
+
+.flow-branch {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.flow-branch::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 12px;
+  width: 14px;
+  border-top: 2px dashed #00ff00;
+}
+
+/* --- Tree (folder/file) design --- */
+.tree-root {
+  margin-top: 8px;
+}
+
+.tree-header {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tree-badge {
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 4px 8px;
+  font-size: 8px;
+  display: inline-block;
+}
+
+.tree-path {
+  color: #888;
+  font-size: 10px;
+}
+
+.tree-folder {
+  margin: 10px 0;
+}
+
+.tree-folder summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: #ffff00;
+  padding: 6px 0;
+}
+
+.tree-folder summary::-webkit-details-marker {
+  display: none;
+}
+
+.tree-folder summary::before {
+  content: "▸";
+  color: #ffff00;
+}
+
+.tree-folder[open] > summary::before {
+  content: "▾";
+}
+
+.folder-name {
+  text-transform: uppercase;
+}
+
+.folder-count {
+  color: #888;
+  font-size: 8px;
+}
+
+.tree-children {
+  margin: 6px 0 0 14px;
+  padding: 0 0 0 14px;
+  border-left: 2px dashed #00ff00;
+  list-style: none;
+}
+
+.tree-file {
+  margin: 10px 0;
+  position: relative;
+  padding-left: 10px;
+}
+
+.tree-file::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 12px;
+  width: 14px;
+  border-top: 2px dashed #00ff00;
+}
+
+.file-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-link {
+  color: #00ffff;
+  border-bottom: 2px solid transparent;
+}
+
+.file-link:hover {
+  border-bottom-color: #00ffff;
+}
+
+.file-path {
+  color: #ffb000; /* amber so it doesn't look like breadcrumb navigation */
+  font-size: 8px;
+  border: 1px solid #ffb000;
+  padding: 2px 6px;
+  background: #110b00;
+}
+
