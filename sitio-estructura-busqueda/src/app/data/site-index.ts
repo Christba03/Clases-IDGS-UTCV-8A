@@ -58,6 +58,15 @@ export const SITE_INDEX: SiteItem[] = [
         keywords: ['mapa', 'sitio', 'estructura', 'sitemap', 'rutas'],
     },
     {
+        id:'busqueda',
+        title:'Búsqueda',
+        description:'Búsqueda simple y avanzada dentro del sitio (filtros por tipo y sección).',
+        path:'/busqueda',
+        type:'pagina',
+        section:'Navegacion',
+        keywords:['busqueda','buscar','filtros','resultados','sitio','navegacion'],
+    },
+    {
         id: 'error404',
         title: 'Error 404',
         description: 'Pagina de error 404 personalizada',

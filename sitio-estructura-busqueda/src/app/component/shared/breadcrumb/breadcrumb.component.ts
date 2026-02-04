@@ -67,8 +67,10 @@ export class Breadcrumb implements OnDestroy {
     const labelMap: Record<string, string> = {
       elementos: 'Elementos',
       menu: 'Menú',
-      breadcrumbs: 'Breadcrumb',
+      breadcrumbs: 'Breadcrumbs',
       'mapa-sitio': 'Mapa del sitio',
+      busqueda: 'Búsqueda',
+      'no-existe': 'Error 404',
     };
 
     // Inicializa los breadcrumbs siempre con el "Inicio".
