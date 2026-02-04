@@ -1,0 +1,120 @@
+<div class="container mt-3">
+
+    <h2 class="mb-3">Búsqueda en el sitio</h2>
+  
+    <!-- Búsqueda simple -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <label class="form-label">Búsqueda simple (palabras clave)</label>
+        <div class="input-group">
+          <!--
+            [(ngModel)]="query"
+            ANALOGÍA: Es como un espejo o un "walkie-talkie" de dos vías.
+            1. Si escribes en el input, la variable 'query' en el TS se actualiza.
+            2. Si cambias 'query' en el TS, el texto en el input se actualiza.
+            ¡Siempre están sincronizados!
+  
+            (keyup.enter)="doSearch()"
+            ANALOGÍA: Es un "oído" atento. Escucha el evento de soltar la tecla (keyup),
+            pero SOLO si esa tecla es ENTER. Si sucede, ejecuta la función doSearch().
+          -->
+          <input class="form-control" placeholder="Ej: menú, breadcrumbs, mapa..." [(ngModel)]="query"
+            (keyup.enter)="doSearch()" />
+          <!-- (click): Escucha cuando el usuario hace clic con el ratón. -->
+          <button class="btn btn-primary" (click)="doSearch()">Buscar</button>
+          <button class="btn btn-outline-secondary" (click)="clear()">Limpiar</button>
+        </div>
+        <small class="text-muted d-block mt-2">
+          Tip: escribe una palabra y presiona Enter.
+        </small>
+      </div>
+    </div>
+  
+    <!-- Búsqueda avanzada -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Búsqueda avanzada (filtros)</h5>
+  
+        <div class="row g-3">
+          <div class="col-12 col-md-4">
+            <label class="form-label">Tipo</label>
+            <!--
+              (change)="doSearch()"
+              Cada vez que el usuario cambia la opción del select, disparamos la búsqueda automáticamente.
+            -->
+            <select class="form-select" [(ngModel)]="filters.type" (change)="doSearch()">
+              <option value="todos">Todos</option>
+              <option value="pagina">Página</option>
+              <option value="seccion">Sección</option>
+            </select>
+          </div>
+  
+          <div class="col-12 col-md-8">
+            <label class="form-label">Sección/tema</label>
+            <select class="form-select" [(ngModel)]="filters.section" (change)="doSearch()">
+              <option value="todas">Todas</option>
+              <!--
+                *ngFor="let s of sections"
+                ANALOGÍA: Es como una fotocopiadora.
+                Toma el elemento <option> y lo repite tantas veces como elementos haya en la lista 'sections'.
+                En cada copia, la variable 's' tomará el valor de ese turno.
+              -->
+              <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+            </select>
+          </div>
+        </div>
+  
+        <small class="text-muted d-block mt-2">
+          Los filtros acotan resultados sin necesidad de escribir más palabras.
+        </small>
+      </div>
+    </div>
+  
+    <!-- Resultados -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Resultados</h5>
+  
+        <!--
+          *ngIf="results$ | async as results"
+          ANALOGÍA COMPLEXA:
+          1. results$ es el paquete de Amazon que viene en camino (Observable).
+          2. | async es el mayordomo que espera en la puerta. Se suscribe, espera el paquete, lo abre y te da el contenido.
+             También se encarga de cancelar la suscripción si te vas de la página (evita fugas de memoria).
+          3. as results: Le pone etiqueta "results" al contenido ya desempaquetado (el array de datos) para usarlo aquí dentro.
+        -->
+        <ng-container *ngIf="results$ | async as results">
+          <!--
+            *ngIf="results.length === 0"
+            ANALOGÍA: El oficial de tránsito.
+            Si la condición es verdadera (lista vacía), deja pasar al elemento (lo muestra).
+            Si es falsa, lo detiene y lo quita del DOM (no existe en la página).
+          -->
+          <div *ngIf="results.length === 0" class="alert alert-warning mb-0">
+            No se encontraron resultados con los criterios actuales.
+          </div>
+  
+          <div *ngIf="results.length > 0" class="list-group">
+            <!--
+              [routerLink]="item.path"
+              Usamos corchetes [] porque "item.path" es una variable, no un texto fijo.
+              Esto le dice a Angular: "Evalúa lo que hay adentro de las comillas".
+            -->
+            <a *ngFor="let item of results" class="list-group-item list-group-item-action" [routerLink]="item.path">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">{{ item.title }}</div>
+                  <small class="text-muted">{{ item.description }}</small>
+                </div>
+                <span class="badge text-bg-secondary">
+                  {{ item.section }}
+                </span>
+              </div>
+            </a>
+          </div>
+        </ng-container>
+  
+      </div>
+    </div>
+  
+  </div>

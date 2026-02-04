@@ -1,0 +1,21 @@
+<header class="topbar">
+    <div class="brand"> Sitio-EStructura</div>
+    <nav class="menu">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+        <a routerLInk="/breadcrumbs" routerLinkActive="active">Breadcrumbs</a>
+        <a routerLInk="/elementos" routerLinkActive="active">Elementos</a>
+        <a routerLInk="/Menu" routerLinkActive="active">Menu</a>
+        <a routerLInk="/mapa-sitio" routerLinkActive="active">Mapa del sitio</a>
+
+    </nav>
+</header>
+
+<main class="content">
+    <app-breadcrumb></app-breadcrumb>
+    <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+    <small>Desarrollo Web Profesional</small>
+</footer>
+

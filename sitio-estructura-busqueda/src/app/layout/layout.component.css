@@ -1,0 +1,28 @@
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+
+}
+.brand{
+    font-weight: 700;
+}
+.menu a {
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+.menu a.active{
+    font-weight: 700;
+    border:1px solid #333;
+}
+.content{
+    padding: 16px;
+}
+.footer{
+    padding:12px 16px;
+    border-top: 1px solid #ddd;
+}
