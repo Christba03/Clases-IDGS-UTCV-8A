@@ -56,25 +56,31 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ## Deployment to GitHub Pages
 
-This project is configured for deployment to GitHub Pages.
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-### Prerequisites
+### Automatic Deployment (Recommended)
 
-1. Make sure your repository is initialized with git:
-   ```bash
-   git init
-   git remote add origin https://github.com/christba03/your-repo-name.git
-   ```
+The project includes a GitHub Actions workflow (`.github/workflows/deploy-angular-gh-pages.yml`) that automatically builds and deploys your site whenever you push to the `main` branch.
 
-2. Ensure you have committed your changes:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   ```
+**Setup:**
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Pages**
+3. Under "Source", select **GitHub Actions** (not "Deploy from a branch")
+4. Save the settings
 
-### Deploy to GitHub Pages
+**How it works:**
+- Every time you push changes to the `main` branch in the `sitio-estructura-busqueda` folder, the workflow will:
+  1. Install dependencies
+  2. Build your Angular app for production
+  3. Deploy it to GitHub Pages automatically
 
-To deploy your application to GitHub Pages, run:
+**View deployments:**
+- Go to the **Actions** tab in your repository to see deployment status
+- Your site will be available at `https://christba03.github.io/Clases-IDGS-UTCV-8A/`
+
+### Manual Deployment (Alternative)
+
+If you prefer to deploy manually, you can use:
 
 ```bash
 npm run deploy:gh-pages
@@ -84,35 +90,14 @@ This command will:
 1. Build your application for production with the correct baseHref
 2. Deploy the built files to the `gh-pages` branch of your repository
 
-### First-time Deployment
-
-On the first deployment, you may be prompted to:
-- Enter your GitHub username
-- Enter your GitHub password (or use a personal access token)
-
-**Note:** If you're using two-factor authentication, you'll need to create a [Personal Access Token](https://github.com/settings/tokens) and use it instead of your password.
-
-### After Deployment
-
-1. Go to your repository on GitHub
-2. Navigate to **Settings** → **Pages**
-3. Under "Source", select the `gh-pages` branch and `/ (root)` folder
-4. Your site will be available at `https://christba03.github.io/your-repo-name/` (or `https://christba03.github.io/` if it's your main repository)
-
-### Updating Your Site
-
-To update your deployed site, simply run the deployment command again:
-
-```bash
-npm run deploy:gh-pages
-```
+**Note:** For manual deployment, you'll need to configure GitHub Pages to use the `gh-pages` branch in Settings → Pages.
 
 ### Custom Base Path
 
-If you need to deploy to a subdirectory (e.g., `https://christba03.github.io/sitio-estructura-busqueda/`), update the `baseHref` in `angular.json`:
+If you need to deploy to a different subdirectory, update the `baseHref` in `angular.json`:
 
 ```json
-"baseHref": "/sitio-estructura-busqueda/"
+"baseHref": "/your-custom-path/"
 ```
 
 And update the deployment script in `package.json` accordingly.

@@ -46,7 +46,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/"
+              "baseHref": "/Clases-IDGS-UTCV-8A/"
             },
             "development": {
               "optimization": false,
