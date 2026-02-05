@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:gh-pages": "ng build --configuration production --base-href=/Clases-IDGS-UTCV-8A/ && cp dist/sitio-estructura/browser/index.html dist/sitio-estructura/browser/404.html && cp -r dist/sitio-estructura/browser/* dist/sitio-estructura/ && rm -rf dist/sitio-estructura/browser && touch dist/sitio-estructura/.nojekyll",
+    "build:gh-pages": "ng build --configuration production --base-href=/Clases-IDGS-UTCV-8A/ && cp dist/sitio-estructura/browser/index.html dist/sitio-estructura/browser/404.html && cp -r dist/sitio-estructura/browser/* dist/sitio-estructura/ && rm -rf dist/sitio-estructura/browser && echo '' > dist/sitio-estructura/.nojekyll",
     "deploy:gh-pages": "npm run build:gh-pages && npx angular-cli-ghpages --dir=dist/sitio-estructura --no-silent"
   },
   "private": true,
